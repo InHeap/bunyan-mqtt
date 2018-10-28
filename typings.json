@@ -1,0 +1,8 @@
+{
+  "globalDependencies": {
+    "node": "registry:dt/node"
+  },
+  "dependencies": {
+    "mqtt": "registry:dt/mqtt"
+  }
+}

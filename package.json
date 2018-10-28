@@ -1,0 +1,15 @@
+{
+  "name": "@ninu/bunyan-mqtt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "types/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mqtt": "^2.18.8"
+  }
+}
