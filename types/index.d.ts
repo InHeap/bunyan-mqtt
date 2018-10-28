@@ -1,4 +1,6 @@
+/// <reference types="node" />
 import * as mqtt from 'mqtt';
+import { EventEmitter } from 'events';
 interface IOtions {
     topic?: string;
     qos?: number;
@@ -7,12 +9,14 @@ interface IOtions {
     brokerUrl?: string;
     mqttOpts?: mqtt.ClientOptions;
 }
-declare class BunyanMqtt {
+declare class BunyanMqtt extends EventEmitter {
+    writable: boolean;
     topic: string;
     qos: number;
     retain: boolean;
-    mqttClient: any;
+    mqttClient: mqtt.Client;
     constructor(opts: IOtions);
-    write(mesg: any): any;
+    write(mesg: any): boolean;
+    end(): void;
 }
 export default BunyanMqtt;

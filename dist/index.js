@@ -1,8 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const mqtt = require("mqtt");
-class BunyanMqtt {
+const events_1 = require("events");
+class BunyanMqtt extends events_1.EventEmitter {
     constructor(opts) {
+        super();
+        this.writable = true;
         this.topic = 'bunyan';
         this.qos = 0;
         this.retain = false;
@@ -18,11 +21,22 @@ class BunyanMqtt {
         }
     }
     write(mesg) {
+        let message = null;
+        if (typeof mesg == 'string') {
+            message = mesg;
+        }
+        else {
+            message = JSON.stringify(mesg);
+        }
         let opts = {
             qos: this.qos,
             retain: this.retain
         };
-        return this.mqttClient.publish(this.topic, mesg, opts);
+        this.mqttClient.publish(this.topic, message, opts);
+        return true;
+    }
+    end() {
+        this.mqttClient.end();
     }
 }
 exports.default = BunyanMqtt;

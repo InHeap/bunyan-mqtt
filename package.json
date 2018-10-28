@@ -1,6 +1,6 @@
 {
   "name": "@inheap/bunyan-mqtt",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
