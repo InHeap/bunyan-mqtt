@@ -3,16 +3,16 @@ import * as mqtt from 'mqtt';
 import { EventEmitter } from 'events';
 interface IOtions {
     topic?: string;
-    qos?: number;
+    qos?: mqtt.QoS;
     retain?: boolean;
     mqttClient?: mqtt.Client;
     brokerUrl?: string;
-    mqttOpts?: mqtt.ClientOptions;
+    mqttOpts?: mqtt.IClientOptions;
 }
 declare class BunyanMqtt extends EventEmitter {
     writable: boolean;
     topic: string;
-    qos: number;
+    qos: mqtt.QoS;
     retain: boolean;
     mqttClient: mqtt.Client;
     constructor(opts: IOtions);

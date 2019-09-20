@@ -7,18 +7,15 @@
 		"allowSyntheticDefaultImports": true,
 		"removeComments": true,
 		"declaration": true,
-		"declarationDir": "./types",
 		"outDir": "./dist",
 		"typeRoots": [
-			"./typings/globals/",
-			"./typings/modules/"
+			"node_modules/@types"
 		]
 	},
 	"include": [
 		"src/**/*"
 	],
 	"exclude": [
-		"typings",
 		"node_modules"
 	]
 }
